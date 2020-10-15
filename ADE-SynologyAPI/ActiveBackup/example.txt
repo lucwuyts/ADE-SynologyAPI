@@ -1,0 +1,48 @@
+﻿    // Example how to call ActiveBackup functions
+    
+    class Program
+    {
+        static void Main()
+        {
+            var session = new SynologySession(new AppSettingsClientConfig());
+            var loggedIn = false;
+
+            try
+            {
+                session.Login();
+                loggedIn = true;
+            }
+            catch (SynologyClientException ex)
+            {
+                Console.WriteLine($"Login error: {ex.Message}");
+            }
+
+            if (loggedIn)
+            {
+                var api = new SynologyActiveBackupApi(session);
+
+                var antw = api.GetOffice365_ListTasks();
+                Console.WriteLine($"Event Log: {antw.data.event_log.Count}");
+
+                var antw1 = api.GetOffice365_GeneralLog(0, 200);
+                Console.WriteLine($"{antw1.data.logs.Count}");
+
+                var antw2 = api.GetBusiness_ActivityLog(0, 200);
+                Console.WriteLine($"{antw2.data.logs.Count}");
+
+                var antw3 = api.GetBusiness_InfoList( DateTime.Now.AddDays(-14) , DateTime.Now );
+                //Console.WriteLine(antw3);
+ 
+                var antw4 = api.GetOffice365_TaskLog(DateTime.Now.AddDays(-7), DateTime.Now);
+                //Console.WriteLine(antw4);
+
+            }
+
+
+            // do not forget !! too much active logins == problems!
+            session.LogOut();
+
+            Console.WriteLine("Logged-out.....");
+            Console.ReadKey();
+        }
+}

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1AE60864-81C6-4C33-9271-2FA08ADB2C11}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ADE_SynologyAPI</RootNamespace>
+    <AssemblyName>ADE-SynologyAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Synology, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Synology.NET.1.0.2\lib\net40\Synology.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ActiveBackup\model\BusinessActivityLog.cs" />
+    <Compile Include="ActiveBackup\model\BusinessDevice.cs" />
+    <Compile Include="ActiveBackup\model\BusinessDeviceInfo.cs" />
+    <Compile Include="ActiveBackup\model\BusinessDeviceList.cs" />
+    <Compile Include="ActiveBackup\model\BusinessInfoList.cs" />
+    <Compile Include="ActiveBackup\model\BusinessListActivityLog.cs" />
+    <Compile Include="ActiveBackup\model\BusinessListInfoList.cs" />
+    <Compile Include="ActiveBackup\model\BusinessListTaskData.cs" />
+    <Compile Include="ActiveBackup\model\BusinessOtherParameters.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTask.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskConfig.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskData2.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskDeviceInfo.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskLastResult.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskResult.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskRetentionPolicy.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskSchedContent.cs" />
+    <Compile Include="ActiveBackup\model\BusinessTaskVersion.cs" />
+    <Compile Include="ActiveBackup\model\Enum_ActiveBackup_BackupType.cs" />
+    <Compile Include="ActiveBackup\model\Office365ActiveBackupTask.cs" />
+    <Compile Include="ActiveBackup\model\Office365EventLog.cs" />
+    <Compile Include="ActiveBackup\model\Office365ListGeneralLog.cs" />
+    <Compile Include="ActiveBackup\model\Office365ListTaskLog.cs" />
+    <Compile Include="ActiveBackup\model\Office365ListTasks.cs" />
+    <Compile Include="ActiveBackup\model\Office365TaskLog.cs" />
+    <Compile Include="ActiveBackup\model\Office365User.cs" />
+    <Compile Include="ActiveBackup\model\Schedule.cs" />
+    <Compile Include="ActiveBackup\model\ServiceUsage.cs" />
+    <Compile Include="ActiveBackup\SynologyActiveBackupApi.cs" />
+    <Compile Include="CloudSync\model\CloudSyncConn.cs" />
+    <Compile Include="CloudSync\model\CloudSyncData.cs" />
+    <Compile Include="CloudSync\model\CloudSyncNotification.cs" />
+    <Compile Include="CloudSync\model\CloudSyncSess.cs" />
+    <Compile Include="CloudSync\model\CloudSyncSessList.cs" />
+    <Compile Include="CloudSync\SynologyCloudSyncApi.cs" />
+    <Compile Include="Core.Security\model\AutoblockIpDate.cs" />
+    <Compile Include="Core.Security\model\AutoblockIp_info.cs" />
+    <Compile Include="Core.Security\SynologyCoreSecurityApi.cs" />
+    <Compile Include="GetResponse.cs" />
+    <Compile Include="HyperBackup\model\App.cs" />
+    <Compile Include="HyperBackup\model\BackupFilter.cs" />
+    <Compile Include="HyperBackup\model\Ea.cs" />
+    <Compile Include="HyperBackup\model\FolderList.cs" />
+    <Compile Include="HyperBackup\model\ListTaskList.cs" />
+    <Compile Include="HyperBackup\model\ListVersionInfoList.cs" />
+    <Compile Include="HyperBackup\model\PermitDelete.cs" />
+    <Compile Include="HyperBackup\model\Repository.cs" />
+    <Compile Include="HyperBackup\model\Schedule.cs" />
+    <Compile Include="HyperBackup\model\Schedule2.cs" />
+    <Compile Include="HyperBackup\model\Share.cs" />
+    <Compile Include="HyperBackup\model\Source.cs" />
+    <Compile Include="HyperBackup\model\Statistics.cs" />
+    <Compile Include="HyperBackup\model\Summary.cs" />
+    <Compile Include="HyperBackup\model\TaskList.cs" />
+    <Compile Include="HyperBackup\model\VersionInfoList.cs" />
+    <Compile Include="HyperBackup\SynologyHyperBackupApi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ActiveBackup\example.txt" />
+    <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="readme.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
