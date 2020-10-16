@@ -108,7 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ActiveBackup\example.txt" />
-    <Content Include="LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
